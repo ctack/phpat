@@ -1,0 +1,8 @@
+li{
+    display: inline-block;
+    width: 25%;
+    list-style: none;
+    text-align: center;
+    background-color: aqua;
+
+}
