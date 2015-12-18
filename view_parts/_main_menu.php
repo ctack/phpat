@@ -8,4 +8,3 @@ $menu = array(
 foreach ($menu as $nom => $url) {
     echo "<li><a href=\"$url\">$nom</a></li>";
 }
-?>

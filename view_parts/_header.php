@@ -4,3 +4,4 @@
     require_once '_main_menu.php';
 ?>
 </div>
+<body>
