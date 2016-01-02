@@ -48,7 +48,9 @@ foreach($talk_msg_data as $date => $daydata){
     echo"<li style='background-color: $color'>
              <p>$hour . $user</p>
              <p>$text</p>
+              <!--comments-->
         </li>";
+
 }?>
 <?php
 require_once 'view_parts/_page_buttom.php';
