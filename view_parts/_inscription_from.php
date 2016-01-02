@@ -1,7 +1,15 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ctack
- * Date: 2015-12-17
- * Time: 12:29
- */
+?>
+<form id = "login" name = "login">
+    <label for = "username">Prénom : </label>
+    <input type="text" name="username" id="username" value=""/></br>
+    <label for = "username">Nom : </label>
+    <input type="text" name="username" id="username" value=""/></br>
+    <label for = "username">courriel : </label>
+    <input type="text" name="username" id="username" value=""/></br>
+    <label for = "username">Pseudo : </label>
+    <input type="text" name="username" id="username" value=""/></br>
+    <label for = "password">Mot de passe : </label>
+    <input type="password" name="password" id="password" /></br>
+    <input type="submit" name="dologin" id="dologin" value="S'inscrire"/>
+</form>

@@ -8,7 +8,6 @@ require_once 'view_parts/_page_base.php';
 <div id="main"></div>
 
 <?php
+require_once 'view_parts/_inscription_from.php';
 require_once 'view_parts/_page_buttom.php';
 ?>
-Status API Training Shop Blog About Pricing
-© 2015 GitHub, Inc. Terms P
