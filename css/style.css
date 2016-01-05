@@ -1,10 +1,4 @@
-li{
-    display: inline-block;
-    width: 21%;
-    list-style: none;
-    text-align: center;
-    background-color: aqua;
-    margin: auto 2%;
-    min-height: 30px;
-    padding-top: 10px;
+
+li class {
+    background-color: coral;
 }
