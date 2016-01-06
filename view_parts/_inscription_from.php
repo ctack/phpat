@@ -59,6 +59,11 @@ if (array_key_exists('pseudo', $_POST)) {
     // Validation du pseudo : min 4 caractères alpha ou chiffres
     $pseudo_ok = (1 === preg_match('/^[a-zA-Z0-9]{4,}$/', $pseudo));
     if ( ! $pseudo_ok ){
+        //Est ce quen il estb libre
+        require_once 'db/_user.php';
+        if (username_exists($pseudo)){
+           echo "Le username" . $pseudo . "est déjà pris";
+        };
         $pseudo_msg = 'Votre pseudo ne peut contenir que des chiffres et des lettres et doit contenir au minimum 4 caractères !';
     }
     var_dump($pseudo);
@@ -83,6 +88,8 @@ if (array_key_exists('mot_passe', $_POST)) {
 }
 if ($prenom_ok && $nom_ok && $courriel_ok && $pseudo_ok && $mot_passe_ok) {
     // On enregistre les données et s'en va sur une autre page
+    require_once 'db/_user.php';
+    $user_info = user_add($pseudo, $mot_passe, $nom, $prenom, $courriel);
     header("Location:index.php");
     exit;
 }
@@ -93,35 +100,35 @@ if ($prenom_ok && $nom_ok && $courriel_ok && $pseudo_ok && $mot_passe_ok) {
         <li>
         <label for="prenom">Prénom : </label>
     <input type="text" name="prenom" id="prenom"
-           class="<?php echo $in_post && ! $prenom_ok ? 'error' : '';?>"
+        class="<?php echo $in_post && ! $prenom_ok ? 'error' : '';?>"
            value="<?php echo array_key_exists('prenom', $_POST) ? $_POST['prenom'] : '' ?>"/>
     <span><?php echo $prenom_msg?></span>
-        </li>
+         </li>
         <li>
     <label for="nom">Nom : </label>
     <input type="nom" name="nom" id="nom"
-           class="<?php echo $in_post && ! $nom_ok ? 'error' : '';?>"
+         class="<?php echo $in_post && ! $nom_ok ? 'error' : '';?>"
            value="<?php echo array_key_exists('nom', $_POST) ? $_POST['nom'] : '' ?>"/>
     <span><?php echo $nom_msg?></span>
-        </li>
+              </li>
         <li>
     <label for="courriel">Courriel : </label>
     <input type="courriel" name="courriel" id="courriel"
-           class="<?php echo $in_post && ! $courriel_ok ? 'error' : '';?>"
+        class ="<?php echo $in_post && ! $courriel_ok ? 'error' : '';?>"
            value="<?php echo array_key_exists('courriel', $_POST) ? $_POST['courriel'] : '' ?>"/>
     <span><?php echo $courriel_msg?></span>
         </li>
         <li>
     <label for="pseudo">Pseudo : </label>
     <input type="pseudo" name="pseudo" id="pseudo"
-           class="<?php echo $in_post && ! $pseudo_ok ? 'error' : '';?>"
+        class="<?php echo $in_post && ! $pseudo_ok ? 'error' : '';?>"
            value="<?php echo array_key_exists('pseudo', $_POST) ? $_POST['pseudo'] : '' ?>"/>
     <span><?php echo $pseudo_msg?></span>
         </li>
         <li>
     <label for="mot_passe">Password : </label>
     <input type="mot_passe" name="mot_passe" id="mot_passe"
-           class="<?php echo $in_post && ! $mot_passe_ok ? 'error' : '';?>"
+         class="<?php echo $in_post && ! $mot_passe_ok ? 'error' : '';?>"
            value="<?php echo array_key_exists('mot_passe', $_POST) ? $_POST['mot_passe'] : '' ?>"/>
     <span><?php echo $mot_passe_msg?></span>
         </li>
